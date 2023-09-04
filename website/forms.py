@@ -1,6 +1,8 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
+from .models import Record
+from django.forms import ModelForm
 
 
 class SignUpForm(UserCreationForm):
@@ -33,4 +35,7 @@ class SignUpForm(UserCreationForm):
 		self.fields['password2'].help_text = '<span class="form-text text-muted"><small>Enter the same password as before, for verification.</small></span>'	
 
 
-    
+class AddRecord(ModelForm):
+	class Meta:
+		model = Record
+		fields = "__all__"

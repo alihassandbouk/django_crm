@@ -6,6 +6,9 @@ from .forms import SignUpForm
 
 # Create your views here.
 def home(request):
+
+    Records = Record.objects.all()
+    
     if request.method == "POST":
         username = request.POST['username']
         password = request.POST['password']
@@ -21,7 +24,7 @@ def home(request):
 
     else:
         return render(request,'home.html',{
-    
+            'Records':Records
     })
 
 
@@ -52,3 +55,5 @@ def register(request):
         return render(request,'register.html',{
             "form":form
         })
+    
+
